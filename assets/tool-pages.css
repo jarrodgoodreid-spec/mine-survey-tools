@@ -1,0 +1,28 @@
+#toolGrid[hidden]{display:none!important}
+.seoToolCard{display:block;text-decoration:none;color:var(--text);height:100%}
+.seoToolCard:hover,.seoToolCard:focus-visible{border-color:var(--accent)}
+.seoToolCard p{font-size:1rem}
+.seoToolCard .open{font-size:.875rem}
+.seoCategory{color:var(--accent2);font-size:.875rem;font-weight:700;letter-spacing:.03em}
+.toolPage{padding:22px 0 48px}
+.seoBreadcrumbs{display:flex;flex-wrap:wrap;justify-content:flex-start;min-height:0;gap:8px;font-size:.875rem;color:var(--muted);margin-bottom:20px}
+.seoBreadcrumbs a,.seoRelated a{color:var(--accent2);text-underline-offset:3px}
+.seoHeading{position:static;z-index:auto;backdrop-filter:none;background:none;border:0;margin-bottom:22px}
+.seoHeading h1{font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;letter-spacing:-.025em;margin:8px 0 12px;max-width:950px}
+.seoHeading p{font-size:1rem;line-height:1.6;max-width:880px;color:var(--muted)}
+.seoHeading .seoCategory{font-size:.875rem;color:var(--accent2)}
+.toolPage #calcArea{scroll-margin-top:90px}
+.toolPage #calculator{margin-bottom:28px}
+.toolPage #calculator .calc{margin-top:0}
+.toolPage #calculator .close{display:inline-block;text-decoration:none;font-size:.875rem}
+.seoGuide{max-width:900px;border-top:1px solid var(--line);padding-top:8px}
+.seoGuide section{margin:28px 0}
+.seoGuide h2,.seoRelated h2{font-size:1.35rem;margin:0 0 12px}
+.seoGuide p,.seoGuide li{font-size:1rem;line-height:1.65}
+.seoGuide li{padding-left:4px;margin-bottom:8px}
+.seoGuide ol{padding-left:24px}
+.seoFormula{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid var(--line);border-radius:10px;padding:18px;background:var(--panel);font-size:.95rem;line-height:1.7;color:var(--text)}
+.seoGuide .seoExampleNote{font-size:.875rem;color:var(--muted)}
+.seoRelated{border-top:1px solid var(--line);padding-top:24px;margin-top:24px}
+.seoRelated nav{display:flex;min-height:0;justify-content:flex-start;flex-wrap:wrap;gap:14px 24px;font-size:1rem}
+@media(max-width:620px){.seoBreadcrumbs{font-size:.875rem}.toolPage{padding-top:16px}.seoHeading h1{font-size:1.85rem}.seoGuide{max-width:100%}.seoFormula{padding:12px}}

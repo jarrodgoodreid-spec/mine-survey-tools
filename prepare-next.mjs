@@ -1,4 +1,6 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { TOOLS } from './seo/tools.mjs';
+import { renderHome, renderDirectory, renderTool, renderSitemap, renderRobots } from './seo/render.mjs';
 
 await rm("public", { recursive: true, force: true });
 await rm("generated", { recursive: true, force: true });
@@ -18,12 +20,19 @@ for (const file of [
 }
 await cp("assets", "public/assets", { recursive: true });
 
-const [homeHtml, toolsHtml] = await Promise.all([
+const [homeSource, toolsSource] = await Promise.all([
   readFile("index.html", "utf8"),
   readFile("tools.html", "utf8")
 ]);
 
+const homeHtml = renderHome(homeSource);
+const toolsHtml = renderDirectory(toolsSource);
+const toolPages = Object.fromEntries(TOOLS.map(tool => [tool.slug, renderTool(toolsSource, tool)]));
+
+await writeFile('public/sitemap.xml', renderSitemap());
+await writeFile('public/robots.txt', renderRobots());
+
 await writeFile(
   "generated/site-html.mjs",
-  `export const homeHtml = ${JSON.stringify(homeHtml)};\nexport const toolsHtml = ${JSON.stringify(toolsHtml)};\n`
+  `export const homeHtml = ${JSON.stringify(homeHtml)};\nexport const toolsHtml = ${JSON.stringify(toolsHtml)};\nexport const toolPages = ${JSON.stringify(toolPages)};\n`
 );
